@@ -2349,8 +2349,8 @@
   .menu-links .tem-sub { position: relative; }
   .menu-sub-titulo { display: inline-flex; align-items: center; gap: 6px; }
   .menu-sub-seta { width: 10px; height: 10px; transition: transform 0.2s; }
-  .tem-sub:hover .menu-sub-seta, .tem-sub:focus-within .menu-sub-seta, .tem-sub.aberto .menu-sub-seta { transform: rotate(180deg); }
-  .tem-sub:hover .menu-sub-titulo, .tem-sub.aberto .menu-sub-titulo { color: var(--tiffany); }
+  .tem-sub.aberto .menu-sub-seta { transform: rotate(180deg); }
+  .tem-sub.aberto .menu-sub-titulo { color: var(--tiffany); }
   .menu-sub {
     position: absolute;
     top: 100%;
@@ -2363,7 +2363,13 @@
     visibility: hidden;
     transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
   }
-  .tem-sub:hover .menu-sub, .tem-sub:focus-within .menu-sub, .tem-sub.aberto .menu-sub { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  .tem-sub.aberto .menu-sub { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  /* passar o mouse só abre onde existe mouse de verdade (no toque, quem manda é o toque: abre e fecha) */
+  @media (hover: hover) and (min-width: 701px) {
+    .tem-sub:hover .menu-sub-seta, .tem-sub:focus-within .menu-sub-seta { transform: rotate(180deg); }
+    .tem-sub:hover .menu-sub-titulo { color: var(--tiffany); }
+    .tem-sub:hover .menu-sub, .tem-sub:focus-within .menu-sub { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  }
   .menu-sub-caixa {
     list-style: none;
     padding: 6px;
@@ -2382,6 +2388,7 @@
 
   @media (max-width: 700px) {
     .menu-links .menu-sub-titulo { display: flex; justify-content: space-between; }
+    .menu-links .tem-sub:not(.aberto) .menu-sub-titulo:hover { color: rgba(255, 255, 255, 0.6); }
     .menu-sub { position: static; width: auto; padding: 0; transform: none; opacity: 1; visibility: visible; display: none; }
     .tem-sub.aberto .menu-sub { display: block; transform: none; }
     .menu-sub-caixa { padding: 0 0 0 14px; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
@@ -2424,15 +2431,15 @@
         <span></span>
       </button>
       <script>
-        /* "Unidades": no mouse abre ao passar por cima; no toque, o 1º toque abre a lista e o 2º vai para a seção */
+        /* "Unidades": no mouse abre ao passar por cima (e o clique leva à seção); no toque, cada toque abre ou fecha a lista */
         (function () {
           var item = document.currentScript.closest('header').querySelector('.tem-sub');
           if (!item) return;
           var titulo = item.querySelector('.menu-sub-titulo');
-          function marcar(aberto) { item.classList.toggle('aberto', aberto); titulo.setAttribute('aria-expanded', aberto ? 'true' : 'false'); }
+          function marcar(aberto) { item.classList.toggle('aberto', aberto); titulo.setAttribute('aria-expanded', aberto ? 'true' : 'false'); if (!aberto) titulo.blur(); }
           titulo.addEventListener('click', function (e) {
             var toque = window.matchMedia('(hover: none)').matches || window.innerWidth <= 700;
-            if (toque && !item.classList.contains('aberto')) { e.preventDefault(); e.stopPropagation(); marcar(true); }
+            if (toque) { e.preventDefault(); e.stopPropagation(); marcar(!item.classList.contains('aberto')); }
           });
           document.addEventListener('click', function (e) { if (!item.contains(e.target)) marcar(false); });
           document.addEventListener('keydown', function (e) { if (e.key === 'Escape') marcar(false); });
