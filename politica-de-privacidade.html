@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- versão de TESTE: não aparecer no Google -->
+<meta name="robots" content="noindex, nofollow">
+<title>Política de Privacidade | Barbearia Du Edu</title>
+<meta name="description" content="Declaração de Privacidade da Barbearia Du Edu, em conformidade com a Lei Geral de Proteção de Dados (LGPD).">
+<meta name="theme-color" content="#060C0F">
+<style>
+  @font-face { font-family: "Aileron"; src: url("fontes/web/Aileron-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Aileron"; src: url("fontes/web/Aileron-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Aileron"; src: url("fontes/web/Aileron-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Aileron"; src: url("fontes/web/Aileron-Black.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+
+  :root { --fundo: #040709; --escuro: #060C0F; --tiffany: #1AC8DB; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--escuro);
+    color: #FFFFFF;
+    font-family: "Aileron", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--tiffany); }
+
+  /* topo simples: logo + voltar */
+  .pp-topo {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(6, 12, 15, 0.92);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom: 1.5px solid rgba(26, 200, 219, 0.08);
+  }
+
+  .pp-topo-dentro {
+    max-width: 1462px;
+    height: 86px;
+    margin: 0 auto;
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pp-topo img { display: block; width: 66px; height: auto; }
+
+  .pp-voltar {
+    font-size: 10.4px;
+    font-weight: 700;
+    letter-spacing: 3.12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.2s;
+  }
+
+  .pp-voltar:hover { color: var(--tiffany); }
+
+  /* conteúdo */
+  .pp {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 88px 24px 110px;
+  }
+
+  .pp-etiqueta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3.77px;
+    text-transform: uppercase;
+    color: var(--tiffany);
+  }
+
+  .pp h1 {
+    margin-top: 16px;
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 54px;
+    letter-spacing: 0.0167em;
+    text-transform: uppercase;
+  }
+
+  .pp h1 span { display: block; color: var(--tiffany); }
+
+  .pp h2 {
+    margin-top: 56px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #FFFFFF;
+  }
+
+  .pp h3 {
+    margin-top: 32px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 26px;
+    color: var(--tiffany);
+  }
+
+  .pp p, .pp li {
+    font-size: 16px;
+    line-height: 27px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .pp p { margin-top: 16px; }
+  .pp p.pp-atualizada { margin-top: 28px; color: rgba(255, 255, 255, 0.6); font-size: 14px; }
+  .pp b { color: #FFFFFF; font-weight: 700; }
+
+  .pp ul { margin-top: 14px; padding-left: 22px; }
+  .pp li + li { margin-top: 6px; }
+  .pp li::marker { color: var(--tiffany); }
+
+  .pp-linha {
+    height: 1px;
+    margin-top: 56px;
+    background: linear-gradient(90deg, rgba(26, 200, 216, 0) 0%, rgba(26, 200, 216, 0.22) 50%, rgba(26, 200, 216, 0) 100%);
+  }
+
+  .pp-contato {
+    margin-top: 24px;
+    padding: 28px 32px;
+    border: 1.25px solid rgba(26, 200, 216, 0.1);
+    background: linear-gradient(180deg, rgba(7, 22, 30, 0.9) 0%, rgba(6, 12, 15, 0.98) 100%);
+  }
+
+  .pp-contato p:first-child { margin-top: 0; }
+
+  /* campos que ainda faltam (a cliente precisa informar) */
+  .pp .preencher { color: #FFB020; font-weight: 700; }
+
+  .pp-rodape {
+    border-top: 1px solid rgba(0, 180, 170, 0.08);
+    background: var(--fundo);
+    padding: 28px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (max-width: 600px) {
+    .pp-topo-dentro { padding: 0 20px; height: 72px; }
+    .pp-topo img { width: 56px; }
+    .pp { padding: 56px 20px 80px; }
+    .pp h1 { font-size: 36px; line-height: 38px; }
+    .pp h2 { margin-top: 44px; font-size: 20px; line-height: 28px; }
+    .pp p, .pp li { font-size: 15px; line-height: 25px; }
+    .pp-contato { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="pp-topo">
+    <div class="pp-topo-dentro">
+      <a href="index.html" aria-label="Barbearia Du Edu"><img src="imagens/web/logo-du-edu.webp" alt="Barbearia Du Edu"></a>
+      <a href="index.html" class="pp-voltar">← Voltar ao site</a>
+    </div>
+  </header>
+
+  <main class="pp">
+    <p class="pp-etiqueta">Barbearia Du Edu</p>
+    <h1>Declaração de <span>Privacidade</span></h1>
+
+    <p class="pp-atualizada">Esta Declaração de Privacidade foi atualizada pela última vez em 11/11/2026 e se aplica a cidadãos e residentes legais permanentes do Brasil, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 – LGPD).</p>
+
+    <p>Nesta Declaração de Privacidade, explicamos como coletamos, utilizamos, armazenamos e protegemos os dados pessoais obtidos por meio do nosso site. Recomendamos que você leia atentamente este documento.</p>
+
+    <p>No tratamento de dados pessoais, cumprimos todos os requisitos previstos na legislação brasileira de proteção de dados, o que significa, entre outros pontos, que:</p>
+    <ul>
+      <li>informamos de forma clara as finalidades para as quais os dados pessoais são tratados;</li>
+      <li>limitamos a coleta de dados pessoais ao mínimo necessário para finalidades legítimas;</li>
+      <li>solicitamos consentimento expresso do titular sempre que exigido por lei;</li>
+      <li>adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais;</li>
+      <li>respeitamos os direitos dos titulares de dados, permitindo acesso, correção ou exclusão quando solicitado.</li>
+    </ul>
+
+    <p>Caso tenha qualquer dúvida ou deseje saber exatamente quais dados mantemos sobre você, entre em contato conosco.</p>
+
+    <h2>1. Finalidade, dados coletados e período de retenção</h2>
+    <p>Podemos coletar ou receber dados pessoais para diversas finalidades relacionadas às nossas atividades comerciais, incluindo, mas não se limitando a:</p>
+
+    <h3>1.1 Contato</h3>
+    <p><b>Dados coletados:</b></p>
+    <ul>
+      <li>Nome ou apelido</li>
+      <li>Endereço de e-mail</li>
+      <li>Número de telefone</li>
+    </ul>
+    <p><b>Base legal para o tratamento:</b><br>Consentimento do titular e/ou legítimo interesse.</p>
+    <p><b>Período de retenção:</b><br>Os dados serão mantidos enquanto forem necessários para o atendimento da solicitação ou enquanto durar a relação entre as partes.</p>
+
+    <h3>1.2 Análise e melhoria do site</h3>
+    <p>Para compilar e analisar estatísticas de uso do site e melhorar a experiência do usuário.</p>
+    <p><b>Dados coletados:</b><br>Dados de navegação (como páginas acessadas, tempo de permanência, endereço IP)</p>
+    <p><b>Base legal para o tratamento:</b><br>Legítimo interesse.</p>
+    <p><b>Período de retenção:</b><br>Os dados serão mantidos pelo período necessário para cumprir as finalidades descritas ou conforme exigido por lei.</p>
+
+    <h3>1.3 Oferta de produtos e serviços personalizados</h3>
+    <p><b>Dados coletados:</b></p>
+    <ul>
+      <li>Nome ou apelido</li>
+      <li>Endereço de e-mail</li>
+      <li>Número de telefone</li>
+    </ul>
+    <p><b>Base legal para o tratamento:</b><br>Consentimento do titular.</p>
+    <p><b>Período de retenção:</b><br>Os dados serão mantidos até que o titular solicite a exclusão ou revogue o consentimento.</p>
+
+    <h2>2. O que acontece se você não fornecer seus dados pessoais?</h2>
+    <p>Caso você opte por não fornecer determinados dados pessoais, pode ser que não consigamos fornecer informações, produtos ou serviços solicitados.</p>
+
+    <h2>3. Cookies</h2>
+    <p>Nosso site utiliza cookies para melhorar a experiência do usuário. Para mais informações sobre o uso de cookies, entre em contato conosco pelos canais informados ao final desta Declaração.</p>
+
+    <h2>4. Compartilhamento e divulgação de dados</h2>
+    <p>Os dados pessoais poderão ser divulgados:</p>
+    <ul>
+      <li>quando exigido por lei ou ordem judicial;</li>
+      <li>em resposta a autoridades públicas competentes;</li>
+      <li>no caso de reorganização societária, fusão, aquisição ou venda de ativos, hipótese em que os dados poderão ser transferidos aos novos responsáveis.</li>
+    </ul>
+    <p>Não comercializamos dados pessoais.</p>
+
+    <h2>5. Segurança dos dados</h2>
+    <p>Estamos comprometidos com a proteção dos dados pessoais. Adotamos medidas de segurança técnicas e organizacionais adequadas para prevenir acessos não autorizados, uso indevido, perda ou divulgação indevida de informações.</p>
+
+    <h2>6. Sites de terceiros</h2>
+    <p>Esta Declaração de Privacidade não se aplica a sites de terceiros acessados por meio de links em nosso site. Recomendamos que você leia as políticas de privacidade desses sites antes de fornecer quaisquer dados pessoais.</p>
+
+    <h2>7. Alterações nesta Declaração de Privacidade</h2>
+    <p>Reservamo-nos o direito de alterar esta Declaração de Privacidade a qualquer momento. Recomendamos que você consulte este documento periodicamente para estar ciente de eventuais atualizações.</p>
+
+    <h2>8. Direitos do titular de dados</h2>
+    <p>Nos termos da LGPD, você possui os seguintes direitos:</p>
+    <ul>
+      <li>confirmação da existência de tratamento de dados;</li>
+      <li>acesso aos dados pessoais;</li>
+      <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+      <li>anonimização, bloqueio ou exclusão de dados desnecessários ou excessivos;</li>
+      <li>portabilidade dos dados, mediante solicitação expressa;</li>
+      <li>eliminação dos dados tratados com consentimento;</li>
+      <li>informação sobre o compartilhamento de dados com terceiros;</li>
+      <li>revogação do consentimento.</li>
+    </ul>
+    <p>Para exercer seus direitos, entre em contato conosco pelos canais informados ao final desta Declaração.</p>
+
+    <h2>9. Reclamações</h2>
+    <p>Caso não esteja satisfeito com o tratamento de seus dados pessoais, você pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD):</p>
+    <p>Autoridade Nacional de Proteção de Dados (ANPD)<br>Esplanada dos Ministérios, Bloco C, 2º andar<br>CEP 70297-400 – Brasília/DF</p>
+    <p>Site: <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">https://www.gov.br/anpd</a></p>
+
+    <h2>10. Crianças e adolescentes</h2>
+    <p>Nosso site não é direcionado a crianças ou adolescentes. Não coletamos intencionalmente dados pessoais de menores de idade. Caso identifiquemos a coleta indevida, os dados serão excluídos.</p>
+
+    <h2>11. Informações de contato</h2>
+    <!-- Razão social e CNPJ informados pelo usuário em 11/11/2026. Sem e-mail: o contato é pelo WhatsApp. -->
+    <div class="pp-contato">
+      <p><b>Barbearia Du Edu</b><br>Razão social: Francisco Eduardo Barbosa<br>CNPJ: 38.445.655/0001-46</p>
+      <p><b>Unidade Narciso (Centro)</b><br>Rua Narciso Sturlini, 456 – Centro, Osasco – SP, 06018-090</p>
+      <p><b>Unidade Campesina</b><br>Av. Dr. Carlos de Moraes Barros, 364 – Vila Campesina, Osasco – SP, 06023-000</p>
+      <p>Telefone / WhatsApp: <a href="https://wa.me/5511954812098" target="_blank" rel="noopener">(11) 95481-2098</a></p>
+    </div>
+  </main>
+
+  <footer class="pp-rodape">© 2026 Barbearia Du Edu. Todos os direitos reservados.</footer>
+
+</body>
+</html>
