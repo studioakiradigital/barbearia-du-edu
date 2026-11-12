@@ -314,7 +314,7 @@
     background:
       linear-gradient(90deg, #060C0F 0, #060C0F 470px, rgba(6, 12, 15, 0) 550px),
       linear-gradient(180deg, #060C0F 0, #060C0F 68px, rgba(6, 12, 15, 0) 140px, rgba(6, 12, 15, 0) 420px, #060C0F 496px),
-      #060C0F url("imagens/web/servicos-fundo-v3.webp") left 470px center / auto 76% no-repeat;
+      #060C0F url("imagens/web/servicos-fundo-v4.webp") left 470px center / auto 76% no-repeat;
   }
 
   /* camada escura do Figma: #060C0F 100% > 75% > 8% (de baixo para cima) */
@@ -1101,6 +1101,7 @@
   }
 
   .unidade-info + .unidade-linha { margin: 22px 0 0; }
+  /* 12/11 (pedido do usuário): sem os ícones à esquerda do endereço, horário e telefone */
 
   .unidade-botoes {
     display: flex;
@@ -1414,6 +1415,12 @@
     cursor: pointer;
     font-family: inherit;
   }
+
+  .formulario .botao-cheio:disabled { opacity: 0.7; cursor: wait; }
+  .form-aviso { margin-top: 14px; font-size: 14px; line-height: 20px; }
+  .form-aviso:empty { display: none; }
+  .form-aviso.ok { color: #1AC8DB; }
+  .form-aviso.erro { color: #FF8A80; }
 
   /* ---------- CHAMADA FINAL (1462 x 737) ---------- */
   .chamada-final {
@@ -1870,7 +1877,7 @@
         linear-gradient(90deg, #060C0F 0, #060C0F calc(50% - 261px), rgba(6, 12, 15, 0) calc(50% - 181px)),
         linear-gradient(180deg, #060C0F 0, #060C0F 68px, rgba(6, 12, 15, 0) 140px, rgba(6, 12, 15, 0) 420px, #060C0F 496px),
         linear-gradient(90deg, rgba(8, 44, 50, 0) calc(50% + 755px), #082C32 calc(50% + 849px)),
-        url("imagens/web/servicos-fundo-v3.webp") left calc(50vw - 261px) center / auto 76% no-repeat,
+        url("imagens/web/servicos-fundo-v4.webp") left calc(50vw - 261px) center / auto 76% no-repeat,
         linear-gradient(90deg, #060C0F 0, #060C0F calc(50% + 765px), #082C32 calc(50% + 843px), #061C21 100%);
       background-color: #060C0F;
     }
@@ -1909,7 +1916,7 @@
       background:
         linear-gradient(90deg, #060C0F 0, #060C0F 610px, rgba(6, 12, 15, 0) 700px),
         linear-gradient(180deg, #060C0F 0, #060C0F 68px, rgba(6, 12, 15, 0) 140px, rgba(6, 12, 15, 0) 420px, #060C0F 496px),
-        #060C0F url("imagens/web/servicos-fundo-v3.webp") right -125px center / auto 76% no-repeat;
+        #060C0F url("imagens/web/servicos-fundo-v4.webp") right -125px center / auto 76% no-repeat;
     }
   }
 
@@ -1981,6 +1988,23 @@
 
   /* Caixas de Serviços sem a barrinha de luz no topo (10/11) */
   .servico-item::before { display: none; }
+
+  /* Serviços com foto (12/11, pedido da cliente): foto em cima, número e nome embaixo */
+  .servico-item { flex-direction: column; align-items: stretch; gap: 0; padding: 0; overflow: hidden; }
+  .servico-foto { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; background: #070C0E; border-bottom: 1px solid rgba(255, 255, 255, 0.09); }
+  .servico-texto { display: flex; align-items: center; gap: 18px; padding: 22px 24px; }
+  @media (max-width: 700px) {
+    .servicos-nomes { gap: 12px; }
+    .servico-item { flex-basis: calc((100% - 12px) / 2); padding: 0; gap: 0; }
+    .servico-foto { aspect-ratio: 1 / 1; }
+    .servico-texto { gap: 10px; padding: 14px 12px; }
+    .servico-num { width: 34px; height: 34px; font-size: 12px; }
+    .servico-nome { font-size: 15px; }
+  }
+
+  /* 12/11 (pedido do usuário, aprovado): caixas de Serviços sem o número e com o nome centralizado */
+  .servico-num { display: none; }
+  .servico-texto { justify-content: center; text-align: center; }
 
   /* Texto novo do Clube (comentário #14, 10/11) */
   .clube-texto strong { font-weight: 400; color: inherit; }

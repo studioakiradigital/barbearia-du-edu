@@ -27,7 +27,7 @@
    "alternateName": "Du Edu",
    "legalName": "Francisco Eduardo Barbosa",
    "taxID": "38.445.655/0001-46",
-   "foundingDate": "2019",
+   "foundingDate": "2021",
    "foundingLocation": "Osasco, SP",
    "founder": {
     "@type": "Person",
@@ -562,7 +562,7 @@
     background:
       linear-gradient(90deg, #060C0F 0, #060C0F 470px, rgba(6, 12, 15, 0) 550px),
       linear-gradient(180deg, #060C0F 0, #060C0F 68px, rgba(6, 12, 15, 0) 140px, rgba(6, 12, 15, 0) 420px, #060C0F 496px),
-      #060C0F url("imagens/web/servicos-fundo-v3.webp") left 470px center / auto 76% no-repeat;
+      #060C0F url("imagens/web/servicos-fundo-v4.webp") left 470px center / auto 76% no-repeat;
   }
 
   /* camada escura do Figma: #060C0F 100% > 75% > 8% (de baixo para cima) */
@@ -1349,6 +1349,7 @@
   }
 
   .unidade-info + .unidade-linha { margin: 22px 0 0; }
+  /* 12/11 (pedido do usuário): sem os ícones à esquerda do endereço, horário e telefone */
 
   .unidade-botoes {
     display: flex;
@@ -1662,6 +1663,12 @@
     cursor: pointer;
     font-family: inherit;
   }
+
+  .formulario .botao-cheio:disabled { opacity: 0.7; cursor: wait; }
+  .form-aviso { margin-top: 14px; font-size: 14px; line-height: 20px; }
+  .form-aviso:empty { display: none; }
+  .form-aviso.ok { color: #1AC8DB; }
+  .form-aviso.erro { color: #FF8A80; }
 
   /* ---------- CHAMADA FINAL (1462 x 737) ---------- */
   .chamada-final {
@@ -2118,7 +2125,7 @@
         linear-gradient(90deg, #060C0F 0, #060C0F calc(50% - 261px), rgba(6, 12, 15, 0) calc(50% - 181px)),
         linear-gradient(180deg, #060C0F 0, #060C0F 68px, rgba(6, 12, 15, 0) 140px, rgba(6, 12, 15, 0) 420px, #060C0F 496px),
         linear-gradient(90deg, rgba(8, 44, 50, 0) calc(50% + 755px), #082C32 calc(50% + 849px)),
-        url("imagens/web/servicos-fundo-v3.webp") left calc(50vw - 261px) center / auto 76% no-repeat,
+        url("imagens/web/servicos-fundo-v4.webp") left calc(50vw - 261px) center / auto 76% no-repeat,
         linear-gradient(90deg, #060C0F 0, #060C0F calc(50% + 765px), #082C32 calc(50% + 843px), #061C21 100%);
       background-color: #060C0F;
     }
@@ -2157,7 +2164,7 @@
       background:
         linear-gradient(90deg, #060C0F 0, #060C0F 610px, rgba(6, 12, 15, 0) 700px),
         linear-gradient(180deg, #060C0F 0, #060C0F 68px, rgba(6, 12, 15, 0) 140px, rgba(6, 12, 15, 0) 420px, #060C0F 496px),
-        #060C0F url("imagens/web/servicos-fundo-v3.webp") right -125px center / auto 76% no-repeat;
+        #060C0F url("imagens/web/servicos-fundo-v4.webp") right -125px center / auto 76% no-repeat;
     }
   }
 
@@ -2229,6 +2236,23 @@
 
   /* Caixas de Serviços sem a barrinha de luz no topo (10/11) */
   .servico-item::before { display: none; }
+
+  /* Serviços com foto (12/11, pedido da cliente): foto em cima, número e nome embaixo */
+  .servico-item { flex-direction: column; align-items: stretch; gap: 0; padding: 0; overflow: hidden; }
+  .servico-foto { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; background: #070C0E; border-bottom: 1px solid rgba(255, 255, 255, 0.09); }
+  .servico-texto { display: flex; align-items: center; gap: 18px; padding: 22px 24px; }
+  @media (max-width: 700px) {
+    .servicos-nomes { gap: 12px; }
+    .servico-item { flex-basis: calc((100% - 12px) / 2); padding: 0; gap: 0; }
+    .servico-foto { aspect-ratio: 1 / 1; }
+    .servico-texto { gap: 10px; padding: 14px 12px; }
+    .servico-num { width: 34px; height: 34px; font-size: 12px; }
+    .servico-nome { font-size: 15px; }
+  }
+
+  /* 12/11 (pedido do usuário, aprovado): caixas de Serviços sem o número e com o nome centralizado */
+  .servico-num { display: none; }
+  .servico-texto { justify-content: center; text-align: center; }
 
   /* Texto novo do Clube (comentário #14, 10/11) */
   .clube-texto strong { font-weight: 400; color: inherit; }
@@ -2493,15 +2517,15 @@
     </div>
 
     <div class="servicos-lista">
-      <!-- comentário #11: só os nomes, sem descrever o serviço -->
+      <!-- comentário #11: só os nomes, sem descrever o serviço. 12/11: foto de cada serviço em cima do nome (pedido da cliente, fotos geradas na IA do Canva) -->
       <ul class="servicos-nomes">
-        <li class="servico-item"><span class="servico-num">01</span><span class="servico-nome">Corte Masculino</span></li>
-        <li class="servico-item"><span class="servico-num">02</span><span class="servico-nome">Corte e Barba</span></li>
-        <li class="servico-item"><span class="servico-num">03</span><span class="servico-nome">Barboterapia Premium</span></li>
-        <li class="servico-item"><span class="servico-num">04</span><span class="servico-nome">Hidratação Capilar</span></li>
-        <li class="servico-item"><span class="servico-num">05</span><span class="servico-nome">Depilação Nariz/Orelha</span></li>
-        <li class="servico-item"><span class="servico-num">06</span><span class="servico-nome">Selagem</span></li>
-        <li class="servico-item"><span class="servico-num">07</span><span class="servico-nome">Sobrancelha</span></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-corte-masculino.webp" alt="Homem com corte masculino moderno na Barbearia Du Edu" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">01</span><span class="servico-nome">Corte Masculino</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-corte-e-barba.webp" alt="Cliente com corte e barba feitos na Barbearia Du Edu" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">02</span><span class="servico-nome">Corte e Barba</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-barboterapia.webp" alt="Barboterapia com vapor de ozônio na barba" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">03</span><span class="servico-nome">Barboterapia Premium</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-hidratacao-capilar.webp" alt="Barbeiro aplicando hidratação no cabelo do cliente" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">04</span><span class="servico-nome">Hidratação Capilar</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-depilacao-nariz-orelha.webp" alt="Barbeiro com o pote de cera na mão fazendo depilação na orelha do cliente" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">05</span><span class="servico-nome">Depilação Nariz/Orelha</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-selagem.webp" alt="Cliente com cabelo liso, alinhado e com brilho depois da selagem" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">06</span><span class="servico-nome">Selagem</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-sobrancelha.webp" alt="Barbeiro acertando a sobrancelha masculina com navalha" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">07</span><span class="servico-nome">Sobrancelha</span></div></li>
       </ul>
 
       <a href="#planos" class="botao-cheio">Conhecer os Planos <span class="seta">→</span></a>
@@ -2620,11 +2644,11 @@
     <div class="inst-banner">
       <div class="brilho"></div>
       <div class="inst-banner-texto">
-        <p class="inst-chamada">Desde 2019</p>
+        <p class="inst-chamada">Desde 2021</p>
         <h2 class="titulo-95">Ser constante <span>é o diferencial</span></h2>
         <!-- comentário #24: texto novo -->
         <div class="inst-banner-paragrafo">
-          <p>Em 2019, Eduardo Barbosa deixou a carreira administrativa para seguir um novo caminho: começou atendendo seus primeiros clientes em domicílio.</p>
+          <p>Em 2021, Eduardo Barbosa deixou a carreira administrativa para seguir um novo caminho: começou atendendo seus primeiros clientes em domicílio.</p>
           <p>Dois anos depois, nasceu a Barbearia Du Edu.</p>
           <p>Hoje, a Du Edu é formada por duas unidades e uma comunidade de clientes que acredita em uma coisa: cuidar da sua imagem não é luxo. É rotina.</p>
           <p class="inst-missao-titulo">Nossa missão</p>
@@ -2638,7 +2662,7 @@
         <!-- comentário #27: Nossa história -->
         <p class="tag-18" id="nossa-historia">Nossa história</p>
         <div class="inst-texto">
-          <p class="">Em 2019, em Osasco, Eduardo começou sua trajetória como barbeiro atendendo seus primeiros clientes em domicílio. Com o tempo, percebeu que queria criar mais do que um lugar para cortar cabelo: queria um espaço onde cada homem pudesse encontrar cuidado, estilo e uma experiência à altura de suas expectativas.</p>
+          <p class="">Em 2021, em Osasco, Eduardo começou sua trajetória como barbeiro atendendo seus primeiros clientes em domicílio. Com o tempo, percebeu que queria criar mais do que um lugar para cortar cabelo: queria um espaço onde cada homem pudesse encontrar cuidado, estilo e uma experiência à altura de suas expectativas.</p>
           <p class="">Foi assim que nasceu a Barbearia Du Edu.</p>
           <p class="">O nome vem do apelido de seu fundador e representa uma marca construída de forma próxima, autêntica e com personalidade. Desde o início, a proposta sempre foi a mesma: valorizar o estilo de cada cliente, cuidar de cada detalhe e oferecer um atendimento que vai além do serviço.</p>
           <p class="">Ao longo dos anos, a Du Edu cresceu, evoluiu e incorporou novas experiências, produtos, técnicas e tecnologia, sem abrir mão daquilo que trouxe a marca até aqui: excelência no atendimento e atenção genuína a cada cliente.</p>
@@ -2690,9 +2714,9 @@
             <h3 class="unidade-titulo">Unidade Narciso (Centro)</h3>
             <div class="unidade-linha"></div>
             <ul class="unidade-info">
-              <li><svg viewBox="0 0 12 12"><path d="M6 1 11 6 6 11 1 6Z" fill="none" stroke="currentColor"/><path d="M6 4 8 6 6 8 4 6Z" fill="currentColor"/></svg><span>Rua Narciso Sturlini, 456<small>Centro · Osasco · SP</small><small>CEP 06018-090</small></span></li>
-              <li><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Seg-Sex: 09h20 às 20h20 · Sáb: 08h às 17h20</span></li>
-              <li><svg viewBox="0 0 12 12"><path d="M4 4 7.5 6 4 8Z" fill="currentColor"/></svg><span>(11) 95481-2098</span></li>
+              <li><span>Rua Narciso Sturlini, 456<small>Centro · Osasco · SP</small><small>CEP 06018-090</small></span></li>
+              <li><span>Seg-Sex: 09h20 às 20h20 · Sáb: 08h às 17h20</span></li>
+              <li><span>(11) 95481-2098</span></li>
             </ul>
             <div class="unidade-linha"></div>
             <div class="unidade-botoes">
@@ -2707,9 +2731,9 @@
             <h3 class="unidade-titulo">Unidade Campesina</h3>
             <div class="unidade-linha"></div>
             <ul class="unidade-info">
-              <li><svg viewBox="0 0 12 12"><path d="M6 1 11 6 6 11 1 6Z" fill="none" stroke="currentColor"/><path d="M6 4 8 6 6 8 4 6Z" fill="currentColor"/></svg><span>Av. Dr. Carlos de Moraes Barros, 364<small>Vila Campesina · Osasco · SP</small><small>CEP 06023-000</small></span></li>
-              <li><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Seg-Sex: 09h20 às 20h20 · Sáb: 08h às 17h20</span></li>
-              <li><svg viewBox="0 0 12 12"><path d="M4 4 7.5 6 4 8Z" fill="currentColor"/></svg><span>(11) 95481-2098</span></li>
+              <li><span>Av. Dr. Carlos de Moraes Barros, 364<small>Vila Campesina · Osasco · SP</small><small>CEP 06023-000</small></span></li>
+              <li><span>Seg-Sex: 09h20 às 20h20 · Sáb: 08h às 17h20</span></li>
+              <li><span>(11) 95481-2098</span></li>
             </ul>
             <div class="unidade-linha"></div>
             <div class="unidade-botoes">
@@ -2814,6 +2838,21 @@
     </div>
   </section>
 
+  <!-- CHAMADA FINAL -->
+  <section class="chamada-final">
+    <div class="brilho"></div>
+    <div class="chamada-conteudo">
+      <!-- comentário #39: textos e botões novos -->
+      <h2 class="chamada-titulo chamada-titulo-39">Seu próximo momento <span>começa aqui</span></h2>
+      <p class="chamada-texto">Escolha a forma que combina com você.</p>
+      <p class="chamada-texto chamada-texto-2">Agende seu próximo atendimento ou conheça o Clube Du Edu e descubra uma maneira ainda mais prática de manter seu estilo sempre em dia.</p>
+      <div class="chamada-botoes">
+        <a href="https://api.whatsapp.com/send?phone=5511954812098&amp;text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="botao-cheio">Agendar meu horário <span class="seta">→</span></a>
+        <a href="#planos" class="botao-linha">Conhecer o Clube Du Edu <span class="seta">→</span></a>
+      </div>
+    </div>
+  </section>
+
   <!-- TRABALHE CONOSCO -->
   <section class="talentos" id="trabalhe-conosco">
     <div class="talentos-banner">
@@ -2840,36 +2879,54 @@
       </div>
 
       <!-- comentário #38: campos novos. O destino do envio não foi definido; por enquanto o formulário abre o WhatsApp da Du Edu com os dados preenchidos. -->
-      <form class="formulario" action="#" onsubmit="var f=this,t='Olá, vim pelo site e quero fazer parte da Du Edu.%0A%0A'+'Nome: '+encodeURIComponent(f.nome.value)+'%0A'+'WhatsApp: '+encodeURIComponent(f.whatsapp.value)+'%0A'+'Instagram profissional: '+encodeURIComponent(f.instagram.value)+'%0A'+'Sobre mim: '+encodeURIComponent(f.sobre.value);window.open('https://api.whatsapp.com/send?phone=5511954812098&amp;text='+t,'_blank');return false">
+      <!-- 12/11: o formulário manda para o e-mail rhselecaobde@gmail.com pelo FormSubmit (antes abria o WhatsApp) -->
+      <form class="formulario" id="form-talentos" action="https://formsubmit.co/rhselecaobde@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Novo perfil pelo site - Banco de talentos Du Edu">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="so-leitor" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label for="t-nome">Nome</label>
-        <input class="campo" id="t-nome" name="nome" type="text" placeholder="Como podemos chamar você?" required>
+        <input class="campo" id="t-nome" name="Nome" type="text" placeholder="Como podemos chamar você?" required>
 
         <label for="t-whatsapp">WhatsApp</label>
-        <input class="campo" id="t-whatsapp" name="whatsapp" type="tel" placeholder="Seu principal contato." required>
+        <input class="campo" id="t-whatsapp" name="WhatsApp" type="tel" placeholder="Seu principal contato." required>
 
         <label for="t-instagram">Instagram profissional</label>
-        <input class="campo" id="t-instagram" name="instagram" type="text" placeholder="Compartilhe seu perfil profissional.">
+        <input class="campo" id="t-instagram" name="Instagram profissional" type="text" placeholder="Compartilhe seu perfil profissional.">
 
         <label for="t-sobre">Conte um pouco sobre você</label>
-        <textarea class="campo" id="t-sobre" name="sobre" placeholder="Queremos conhecer você e sua trajetória profissional."></textarea>
+        <textarea class="campo" id="t-sobre" name="Sobre mim" placeholder="Queremos conhecer você e sua trajetória profissional."></textarea>
 
         <button type="submit" class="botao-cheio">Enviar meu perfil <span class="seta">→</span></button>
+        <p class="form-aviso" role="status" aria-live="polite"></p>
       </form>
-    </div>
-  </section>
-
-  <!-- CHAMADA FINAL -->
-  <section class="chamada-final">
-    <div class="brilho"></div>
-    <div class="chamada-conteudo">
-      <!-- comentário #39: textos e botões novos -->
-      <h2 class="chamada-titulo chamada-titulo-39">Seu próximo momento <span>começa aqui</span></h2>
-      <p class="chamada-texto">Escolha a forma que combina com você.</p>
-      <p class="chamada-texto chamada-texto-2">Agende seu próximo atendimento ou conheça o Clube Du Edu e descubra uma maneira ainda mais prática de manter seu estilo sempre em dia.</p>
-      <div class="chamada-botoes">
-        <a href="https://api.whatsapp.com/send?phone=5511954812098&amp;text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="botao-cheio">Agendar meu horário <span class="seta">→</span></a>
-        <a href="#planos" class="botao-linha">Conhecer o Clube Du Edu <span class="seta">→</span></a>
-      </div>
+      <script>
+        (function () {
+          var f = document.getElementById('form-talentos');
+          if (!f) return;
+          var aviso = f.querySelector('.form-aviso'), botao = f.querySelector('button[type="submit"]');
+          f.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (f._honey.value) return;
+            var textoBotao = botao.innerHTML;
+            botao.disabled = true; botao.textContent = 'Enviando...';
+            aviso.className = 'form-aviso'; aviso.textContent = '';
+            fetch('https://formsubmit.co/ajax/rhselecaobde@gmail.com', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(f) })
+              .then(function (r) { return r.json(); })
+              .then(function (d) {
+                if (String(d.success) !== 'true') throw new Error(d.message || 'erro');
+                f.reset();
+                aviso.className = 'form-aviso ok';
+                aviso.textContent = 'Recebemos seu perfil! Em breve entraremos em contato.';
+              })
+              .catch(function () {
+                aviso.className = 'form-aviso erro';
+                aviso.textContent = 'Não foi possível enviar agora. Tente de novo em instantes.';
+              })
+              .then(function () { botao.disabled = false; botao.innerHTML = textoBotao; });
+          });
+        })();
+      </script>
     </div>
   </section>
 
