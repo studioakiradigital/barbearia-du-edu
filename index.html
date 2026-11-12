@@ -37,7 +37,7 @@
    "telephone": "+55 11 95481-2098",
    "sameAs": [
     "https://www.instagram.com/barbeariaduedu",
-    "https://www.tiktok.com/@barbeariaduedu",
+    "https://www.tiktok.com/@barbeariaduedu1",
     "https://apps.apple.com/br/app/barbearia-du-edu/id6479023845",
     "https://play.google.com/store/apps/details?id=br.com.starapp.barbeariaduedu"
    ]
@@ -146,7 +146,7 @@
    },
    "sameAs": [
     "https://www.instagram.com/barbeariaduedu",
-    "https://www.tiktok.com/@barbeariaduedu",
+    "https://www.tiktok.com/@barbeariaduedu1",
     "https://apps.apple.com/br/app/barbearia-du-edu/id6479023845",
     "https://play.google.com/store/apps/details?id=br.com.starapp.barbeariaduedu"
    ]
@@ -255,7 +255,7 @@
    },
    "sameAs": [
     "https://www.instagram.com/barbeariaduedu",
-    "https://www.tiktok.com/@barbeariaduedu",
+    "https://www.tiktok.com/@barbeariaduedu1",
     "https://apps.apple.com/br/app/barbearia-du-edu/id6479023845",
     "https://play.google.com/store/apps/details?id=br.com.starapp.barbeariaduedu"
    ]
@@ -2244,7 +2244,7 @@
   @media (max-width: 700px) {
     .servicos-nomes { gap: 12px; }
     .servico-item { flex-basis: calc((100% - 12px) / 2); padding: 0; gap: 0; }
-    .servico-foto { aspect-ratio: 1 / 1; }
+    /* 12/11: no celular a foto também fica 4:3, para esconder o nome escrito na parte de baixo das fotos novas (pedido do usuário) */
     .servico-texto { gap: 10px; padding: 14px 12px; }
     .servico-num { width: 34px; height: 34px; font-size: 12px; }
     .servico-nome { font-size: 15px; }
@@ -2419,6 +2419,52 @@
     .menu-links .menu-sub-caixa a { padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
     .menu-sub-caixa a:hover { background: none; }
   }
+
+  /* 12/11: planos reais (imagem do usuário): Corte R$157 · Corte e Barba R$267 (Mais vendido, no meio) · Barba R$177.
+     Frase embaixo do preço, 7 itens com ✓ (incluso) e ✕ (não incluso), botões alinhados embaixo. */
+  .plano { height: auto; min-height: 475.56px; }
+  .plano-frase { margin-top: 12px; font-size: 13px; line-height: 19px; letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.6); }
+  .plano-itens li.sim::before { content: "✓"; font-weight: 700; color: var(--tiffany); }
+  .plano-itens li.nao::before { content: "✕"; color: rgba(255, 255, 255, 0.35); }
+  .plano-itens li::before { width: 14px; text-align: center; font-size: 13px; }
+  .plano-basico .botao-linha, .plano-destaque .botao-cheio, .plano-elite .botao-linha { margin-top: auto; }
+  .plano-itens { margin-bottom: 32px; }
+  .plano .botao-cheio, .plano .botao-linha { white-space: nowrap; padding-left: 14px; padding-right: 14px; }
+  .plano-destaque .botao-cheio { letter-spacing: 1.2px; }
+  /* 12/11: botões dos planos só com "Assinar", sem seta, texto centralizado (pedido do usuário) */
+  .plano .botao-cheio, .plano .botao-linha { justify-content: center; text-align: center; gap: 0; }
+
+  /* 12/11: seção "Por que escolher a Du Edu": título grande e os 7 diferenciais numa caixa só, com a lista do jeito que era antes */
+  .porque { background: #060C0F; padding: 0 0 110px; }
+  .porque .titulo-72 { text-align: center; }
+  .porque-caixa-unica {
+    position: relative;
+    max-width: 860px;
+    margin: 56px auto 0;
+    padding: 28px 48px 24px 24px;
+    border: 1px solid rgba(26, 200, 219, 0.35);
+    border-radius: 18px;
+    background: linear-gradient(160deg, rgba(0, 75, 75, 0.28) 0%, rgba(3, 43, 45, 0.45) 35%, rgba(6, 12, 15, 0.98) 100%);
+    box-shadow: 0 0 40px rgba(26, 200, 219, 0.08);
+  }
+  .porque-caixa-unica::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96px;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+    background: var(--tiffany);
+    box-shadow: 0 0 18px 2px rgba(26, 200, 219, 0.45);
+  }
+  .porque-caixa-unica .inst-porque { margin-top: 0; }
+  .inst-colunas .inst-foto { margin-top: 40px; }
+  @media (max-width: 600px) {
+    .porque { padding-bottom: 72px; }
+    .porque-caixa-unica { margin-top: 36px; padding: 16px 16px 12px 0; border-radius: 14px; }
+  }
 </style>
 </head>
 <body>
@@ -2519,13 +2565,13 @@
     <div class="servicos-lista">
       <!-- comentário #11: só os nomes, sem descrever o serviço. 12/11: foto de cada serviço em cima do nome (pedido da cliente, fotos geradas na IA do Canva) -->
       <ul class="servicos-nomes">
-        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-corte-masculino.webp" alt="Homem com corte masculino moderno na Barbearia Du Edu" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">01</span><span class="servico-nome">Corte Masculino</span></div></li>
-        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-corte-e-barba.webp" alt="Cliente com corte e barba feitos na Barbearia Du Edu" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">02</span><span class="servico-nome">Corte e Barba</span></div></li>
-        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-barboterapia.webp" alt="Barboterapia com vapor de ozônio na barba" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">03</span><span class="servico-nome">Barboterapia Premium</span></div></li>
-        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-hidratacao-capilar.webp" alt="Barbeiro aplicando hidratação no cabelo do cliente" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">04</span><span class="servico-nome">Hidratação Capilar</span></div></li>
-        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-depilacao-nariz-orelha.webp" alt="Barbeiro com o pote de cera na mão fazendo depilação na orelha do cliente" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">05</span><span class="servico-nome">Depilação Nariz/Orelha</span></div></li>
-        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-selagem.webp" alt="Cliente com cabelo liso, alinhado e com brilho depois da selagem" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">06</span><span class="servico-nome">Selagem</span></div></li>
-        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-sobrancelha.webp" alt="Barbeiro acertando a sobrancelha masculina com navalha" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">07</span><span class="servico-nome">Sobrancelha</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-corte-masculino.webp" alt="Nuca de cliente com corte masculino degradê na Barbearia Du Edu" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">01</span><span class="servico-nome">Corte Masculino</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-corte-e-barba.webp" alt="Barbeiro acertando a barba do cliente com a máquina" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">02</span><span class="servico-nome">Corte e Barba</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-barboterapia.webp" alt="Cliente recebendo vapor na barba durante a barboterapia" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">03</span><span class="servico-nome">Barboterapia Premium</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-hidratacao-capilar.webp" alt="Barbeiro lavando e hidratando o cabelo do cliente no lavatório" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">04</span><span class="servico-nome">Hidratação Capilar</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-depilacao-nariz-orelha.webp" alt="Barbeiro aplicando cera para depilação do nariz do cliente" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">05</span><span class="servico-nome">Depilação Nariz/Orelha</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-selagem.webp" alt="Barbeiro fazendo selagem capilar com a prancha no cabelo do cliente" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">06</span><span class="servico-nome">Selagem</span></div></li>
+        <li class="servico-item"><img class="servico-foto" src="imagens/web/servico-sobrancelha.webp" alt="Barbeiro acertando a sobrancelha do cliente com pinça" width="600" height="600" loading="lazy" decoding="async"><div class="servico-texto"><span class="servico-num">07</span><span class="servico-nome">Sobrancelha</span></div></li>
       </ul>
 
       <a href="#planos" class="botao-cheio">Conhecer os Planos <span class="seta">→</span></a>
@@ -2563,45 +2609,55 @@
 
       <div class="planos">
         <div class="plano plano-basico">
-          <p class="plano-nome">Básico</p>
+          <p class="plano-nome">Corte</p>
           <div class="plano-preco"><strong><small>R$</small>157</strong><span>/mês</span></div>
+          <p class="plano-frase">Seu cabelo sempre alinhado</p>
           <div class="plano-linha"></div>
           <ul class="lista-seta plano-itens">
-            <li>2 cortes/mês</li>
-            <li>Agendamento prioritário</li>
-            <li>Desconto em produtos</li>
+            <li class="sim">Corte Ilimitado</li>
+            <li class="nao">Barba Ilimitado</li>
+            <li class="sim">Perfil Ilimitado - Pezinho</li>
+            <li class="sim">Intransferível</li>
+            <li class="nao">Corte Limitado</li>
+            <li class="nao">Barba Limitado</li>
+            <li class="nao">Perfil Limitado - Pezinho</li>
           </ul>
-          <a href="https://api.whatsapp.com/send?phone=5511954812098&amp;text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20assinar%20o%20plano%20B%C3%A1sico." target="_blank" rel="noopener" class="botao-linha">Assinar Básico <span class="seta">→</span></a>
+          <a href="https://app.galaxpay.com.br/barbeariadueduplan/duedu" target="_blank" rel="noopener" class="botao-linha">Assinar</a>
         </div>
 
         <div class="plano plano-destaque">
-          <span class="selo">Mais popular</span>
-          <p class="plano-nome">Premium</p>
-          <div class="plano-preco"><strong><small>R$</small>177</strong><span>/mês</span></div>
+          <span class="selo">Mais vendido</span>
+          <p class="plano-nome">Corte e Barba</p>
+          <div class="plano-preco"><strong><small>R$</small>267</strong><span>/mês</span></div>
+          <p class="plano-frase">Sua imagem sempre impecável</p>
           <div class="plano-linha"></div>
           <ul class="lista-seta plano-itens">
-            <li>Cortes ilimitados</li>
-            <li>Barba inclusa 2×/mês</li>
-            <li>Agendamento expresso 24h</li>
-            <li>Tratamento facial mensal</li>
-            <li>Produtos premium incluso</li>
+            <li class="sim">Corte Ilimitado</li>
+            <li class="sim">Barba Ilimitado</li>
+            <li class="sim">Perfil Ilimitado - Pezinho</li>
+            <li class="sim">Intransferível</li>
+            <li class="nao">Corte Limitado</li>
+            <li class="nao">Barba Limitado</li>
+            <li class="nao">Perfil Limitado - Pezinho</li>
           </ul>
-          <a href="https://api.whatsapp.com/send?phone=5511954812098&amp;text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20assinar%20o%20plano%20Premium." target="_blank" rel="noopener" class="botao-cheio">Assinar Premium <span class="seta">→</span></a>
+          <a href="https://app.galaxpay.com.br/barbeariadueduplan/duedu" target="_blank" rel="noopener" class="botao-cheio">Assinar</a>
         </div>
 
         <div class="plano plano-elite">
-          <span class="selo selo-escuro">Exclusivo</span>
-          <p class="plano-nome">Elite</p>
-          <div class="plano-preco"><strong><small>R$</small>267</strong><span>/mês</span></div>
+          <p class="plano-nome">Barba</p>
+          <div class="plano-preco"><strong><small>R$</small>177</strong><span>/mês</span></div>
+          <p class="plano-frase">Sua barba sempre alinhada</p>
           <div class="plano-linha"></div>
           <ul class="lista-seta plano-itens">
-            <li>Cortes ilimitados</li>
-            <li>Barba ilimitada</li>
-            <li>Cadeira reservada fixa</li>
-            <li>Protocolo facial semanal</li>
-            <li>Kit de cuidados personalizado</li>
+            <li class="nao">Corte Ilimitado</li>
+            <li class="sim">Barba Ilimitado</li>
+            <li class="nao">Perfil Ilimitado - Pezinho</li>
+            <li class="sim">Intransferível</li>
+            <li class="nao">Corte Limitado</li>
+            <li class="nao">Barba Limitado</li>
+            <li class="nao">Perfil Limitado - Pezinho</li>
           </ul>
-          <a href="https://api.whatsapp.com/send?phone=5511954812098&amp;text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20assinar%20o%20plano%20Elite." target="_blank" rel="noopener" class="botao-linha">Assinar Elite <span class="seta">→</span></a>
+          <a href="https://app.galaxpay.com.br/barbeariadueduplan/duedu" target="_blank" rel="noopener" class="botao-linha">Assinar</a>
         </div>
       </div>
     </div>
@@ -2670,18 +2726,30 @@
           <p class="">Porque, para a Du Edu, cuidar da aparência é apenas uma parte da experiência. O verdadeiro diferencial está em como cada cliente é recebido, cuidado e reconhecido.</p>
         </div>
 
+      </div>
+
+      <div>
+        <!-- 12/11: "Nossa equipe" passou para a coluna da direita, em cima da foto; "Por que escolher" virou seção própria logo abaixo -->
         <!-- comentários #26 e #25: Nossa equipe logo abaixo da história, sem tópicos -->
-        <p class="tag-18 inst-bloco-titulo">Nossa equipe</p>
+        <p class="tag-18">Nossa equipe</p>
         <div class="inst-texto">
           <p class="inst-texto-destaque">Um time preparado, comprometido e em constante evolução.</p>
           <p class="">Na Du Edu, cada profissional compartilha o mesmo propósito: oferecer excelência, cuidado e uma experiência que faça sentido para quem escolhe estar com a gente.</p>
           <p class="">Porque o padrão Du Edu está em cada detalhe, e principalmente, nas pessoas que o representam.</p>
         </div>
-      </div>
 
-      <div>
-        <!-- comentário #28: Por que escolher a Du Edu (sem itálico) -->
-        <p class="tag-18">Por que escolher a Du Edu</p>
+        <!-- comentário #29: foto da navalha reposicionada no fim da coluna, para equilibrar com os textos -->
+        <img class="inst-foto" src="imagens/web/institucional-navalha.webp" alt="Barbeiro da Du Edu fazendo a barba com navalha">
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE ESCOLHER A DU EDU (12/11: virou seção própria, com cada diferencial numa caixa — pedido do usuário) -->
+  <section class="porque" id="por-que-escolher">
+    <div class="container">
+      <h2 class="titulo-72">Por que escolher <span>a Du Edu</span></h2>
+      <!-- 12/11: uma caixa só, com a lista do jeito que era antes (pedido do usuário) -->
+      <div class="porque-caixa-unica">
         <ul class="equipe inst-porque">
           <li><strong>Especialistas em estilo masculino</strong><span>Profissionais preparados para entregar excelência em corte, barba e cuidados masculinos.</span></li>
           <li><strong>Experiência premium</strong><span>Ambientes modernos, confortáveis e pensados para transformar cada visita em um momento de cuidado.</span></li>
@@ -2691,9 +2759,6 @@
           <li><strong>Duas unidades em Osasco</strong><span>Presença em duas regiões da cidade, com a mesma experiência, padrão e identidade Du Edu.</span></li>
           <li><strong>Uma comunidade que cresce com a gente</strong><span>Mais do que clientes, pessoas que fazem parte da nossa história e ajudam a construir a próxima fase da Du Edu.</span></li>
         </ul>
-
-        <!-- comentário #29: foto da navalha reposicionada no fim da coluna, para equilibrar com os textos -->
-        <img class="inst-foto" src="imagens/web/institucional-navalha.webp" alt="Barbeiro da Du Edu fazendo a barba com navalha">
       </div>
     </div>
   </section>
@@ -2764,10 +2829,10 @@
           <div class="rede-linha"></div>
           <span class="rede-link">Seguir agora →</span>
         </a>
-        <a class="rede" href="https://www.tiktok.com/@barbeariaduedu" target="_blank" rel="noopener">
+        <a class="rede" href="https://www.tiktok.com/@barbeariaduedu1" target="_blank" rel="noopener">
           <svg class="rede-icone" viewBox="0 0 28 28" aria-hidden="true"><path fill="currentColor" d="M19.3 3.5h-3.9v14.6a3.3 3.3 0 1 1-2.3-3.15v-4a7.2 7.2 0 1 0 6.2 7.15V10.6a9 9 0 0 0 4.9 1.45V8.2a4.9 4.9 0 0 1-4.9-4.7Z"/></svg>
           <p class="rede-nome">TikTok</p>
-          <p class="rede-arroba">@barbeariaduedu</p>
+          <p class="rede-arroba">@barbeariaduedu1</p>
           <div class="rede-linha"></div>
           <span class="rede-link">Seguir agora →</span>
         </a>
@@ -2963,7 +3028,7 @@
           <p class="rodape-titulo">Siga a Du Edu</p>
           <ul class="rodape-links">
             <li><a href="https://www.instagram.com/barbeariaduedu" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.tiktok.com/@barbeariaduedu" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="https://www.tiktok.com/@barbeariaduedu1" target="_blank" rel="noopener">TikTok</a></li>
           </ul>
         </div>
       </div>
