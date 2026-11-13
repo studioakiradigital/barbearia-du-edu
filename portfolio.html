@@ -2216,6 +2216,14 @@
   }
   .porque-caixa-unica .inst-porque { margin-top: 0; }
   .inst-colunas .inst-foto { margin-top: 40px; }
+  .inst-colunas .inst-foto-vertical { height: auto; aspect-ratio: 1086 / 1448; object-fit: cover; } /* 13/11: foto da equipe inteira, em pé */
+  /* 13/11: equipe embaixo da história; foto à direita do mesmo tamanho (altura) que os textos da esquerda */
+  .inst-equipe-titulo { margin-top: 48px; }
+  .inst-colunas .inst-foto-coluna { position: relative; }
+  .inst-colunas .inst-foto-coluna .inst-foto { position: absolute; inset: 0; width: 100%; max-width: none; height: 100%; margin-top: 0; aspect-ratio: auto; object-fit: cover; object-position: center 55%; }
+  @media (max-width: 900px) {
+    .inst-colunas .inst-foto-coluna .inst-foto { position: static; height: auto; aspect-ratio: 1086 / 1448; }
+  }
   @media (max-width: 600px) {
     .porque { padding-bottom: 72px; }
     .porque-caixa-unica { margin-top: 36px; padding: 16px 16px 12px 0; border-radius: 14px; }

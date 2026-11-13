@@ -2464,6 +2464,14 @@
   }
   .porque-caixa-unica .inst-porque { margin-top: 0; }
   .inst-colunas .inst-foto { margin-top: 40px; }
+  .inst-colunas .inst-foto-vertical { height: auto; aspect-ratio: 1086 / 1448; object-fit: cover; } /* 13/11: foto da equipe inteira, em pé */
+  /* 13/11: equipe embaixo da história; foto à direita do mesmo tamanho (altura) que os textos da esquerda */
+  .inst-equipe-titulo { margin-top: 48px; }
+  .inst-colunas .inst-foto-coluna { position: relative; }
+  .inst-colunas .inst-foto-coluna .inst-foto { position: absolute; inset: 0; width: 100%; max-width: none; height: 100%; margin-top: 0; aspect-ratio: auto; object-fit: cover; object-position: center 55%; }
+  @media (max-width: 900px) {
+    .inst-colunas .inst-foto-coluna .inst-foto { position: static; height: auto; aspect-ratio: 1086 / 1448; }
+  }
   @media (max-width: 600px) {
     .porque { padding-bottom: 72px; }
     .porque-caixa-unica { margin-top: 36px; padding: 16px 16px 12px 0; border-radius: 14px; }
@@ -2715,20 +2723,19 @@
           <p class="inst-texto-destaque inst-texto-sem-negrito">Du Edu: mais do que cortar cabelo, transformar experiência</p>
         </div>
 
-      </div>
-
-      <div>
-        <!-- 12/11: "Nossa equipe" passou para a coluna da direita, em cima da foto; "Por que escolher" virou seção própria logo abaixo -->
-        <!-- comentários #26 e #25: Nossa equipe logo abaixo da história, sem tópicos -->
-        <p class="tag-18">Nossa equipe</p>
+        <!-- 13/11: "Nossa equipe" voltou para baixo da Nossa história (pedido do usuário) -->
+        <p class="tag-18 inst-equipe-titulo">Nossa equipe</p>
         <div class="inst-texto">
           <p class="inst-texto-destaque">Um time preparado, comprometido e em constante evolução.</p>
           <p class="">Na Du Edu, cada profissional compartilha o mesmo propósito: oferecer excelência, cuidado e uma experiência que faça sentido para quem escolhe estar com a gente.</p>
           <p class="">Porque o padrão Du Edu está em cada detalhe, e principalmente, nas pessoas que o representam.</p>
         </div>
+      </div>
 
-        <!-- comentário #29: foto da navalha reposicionada no fim da coluna, para equilibrar com os textos -->
-        <img class="inst-foto" src="imagens/web/institucional-navalha.webp" alt="Barbeiro da Du Edu fazendo a barba com navalha">
+      <!-- 13/11: foto sozinha na coluna da direita, com a mesma altura dos textos da esquerda -->
+      <div class="inst-foto-coluna">
+        <!-- 13/11: foto da navalha trocada pela foto da equipe no salão, em pé (pedido do usuário) -->
+        <img class="inst-foto inst-foto-vertical" src="imagens/web/institucional-equipe.webp?v=2" alt="Barbeiros da Du Edu atendendo clientes no salão da barbearia">
       </div>
     </div>
   </section>
