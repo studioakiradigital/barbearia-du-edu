@@ -2231,7 +2231,7 @@
   .whats-flutuante {
     position: fixed;
     right: 28px;
-    bottom: 28px;
+    bottom: 48px; /* 13/11: subiu 20px */
     z-index: 20;
     display: flex;
     align-items: center;
@@ -2253,7 +2253,7 @@
   .whats-flutuante svg { width: 32px; height: 32px; }
 
   @media (max-width: 600px) {
-    .whats-flutuante { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+    .whats-flutuante { right: 16px; bottom: 32px; width: 54px; height: 54px; }
     .whats-flutuante svg { width: 29px; height: 29px; }
   }
 
@@ -2322,6 +2322,8 @@
   .plano-itens { margin-bottom: 32px; }
   .plano .botao-cheio, .plano .botao-linha { white-space: nowrap; padding-left: 14px; padding-right: 14px; }
   .plano-destaque .botao-cheio { letter-spacing: 1.2px; }
+  /* 13/11: sem os itens com X; no celular (cards empilhados) cada card fica do tamanho do conteúdo */
+  @media (max-width: 900px) { .plano { min-height: 0; } .plano-itens { margin-bottom: 28px; } }
   /* 12/11: botões dos planos só com "Assinar", sem seta, texto centralizado (pedido do usuário) */
   .plano .botao-cheio, .plano .botao-linha { justify-content: center; text-align: center; gap: 0; }
 
